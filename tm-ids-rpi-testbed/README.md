@@ -7,6 +7,11 @@
 
 Evidence levels: **[V]** = seen in a file or saved output in this folder, **[R]** = my own statement, not backed by a file here, **[?]** = not confirmed yet.
 
+<p align="center">
+  <img src="docs/evidence/ethernet_laptop_to_pi.jpg" width="720" alt="Laptop with Ethernet cable to a sender Raspberry Pi">
+  <br><sub>The laptop (MITM) is connected by Ethernet to one sender Pi. More photos at the bottom of this page.</sub>
+</p>
+
 ## 1. Problem and motivation
 A trained Tsetlin Machine (TM) intrusion detector is split across several Raspberry Pis. Each sender Pi transmits its TM rules over UDP, protected by Hamming(7,4), to a central Pi that decodes, corrects and runs inference. The question: if a man-in-the-middle corrupts the packets of one sender, do error correction and fusion of several TMs keep the detector accurate? [V: `code/rpi_medsciot/README.md:1-4`, `code/rpi_3_c/README.md:1-12`]
 
