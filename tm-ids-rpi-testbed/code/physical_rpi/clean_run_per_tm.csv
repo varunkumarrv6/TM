@@ -1,0 +1,5 @@
+model,route,packets_received,packets_expected,accuracy_pct,clean_accuracy_pct,mean_true_class_sum,clean_mean_true_class_sum,flows_all_sums_zero
+TM 0,10.42.0.1 -> central,394,394,82.00,82.00,24.06,24.06,0
+TM 1,192.168.50.3 -> laptop 192.168.50.2 -> central,402,402,84.00,84.00,25.92,25.92,0
+TM 2,10.42.0.59 -> central,402,402,78.00,78.00,29.02,29.02,0
+fused (sum of 3 TMs),central 10.42.0.145,1198,1198,82.00,82.00,79.00,79.00,0

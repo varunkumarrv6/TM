@@ -1,0 +1,6 @@
+code,encode_ms,decode_ms,implementation,note
+"Hamming(7,4)",,57.727,vectorised NumPy,"decode of 4,734,000 codewords; encode time not printed"
+"BCH(255,239)",21.499,124381.177,"galois, per-codeword loop",2 bit errors in codeword 0
+"BCH(255,191)",48.382,136443.574,"galois, per-codeword loop",8 bit errors in codeword 0 (cell 38 plot used 140251 ms)
+"RS(255,223)",110.628,17567.561,"galois, per-codeword loop",16 byte errors in codeword 0; first run encode 1269 ms
+Conv. K=7 r=1/2 (Viterbi),4658.824,,Python,decoding interrupted (too slow)

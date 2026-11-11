@@ -1,0 +1,13 @@
+model                 MedSec-25 single TM, 5 classes x 900 clauses, 356 literals
+weights               normalised to 4 bits: s = max|w|/7 = 193/7 -> Q8.8 7058 = 27.570312, w4 in -8..7
+                      (full weights -193..147; 1483 clauses get w4 = 0)
+packets               403 datagrams (grouped by class and 4-bit weight), 967 bytes each with Hamming
+hamming stream        medsec_tm_hamming.bin  389701 bytes, corrected codewords 0
+error stream          medsec_tm_hamming_err.bin  corrected codewords 4459 (1 % single-bit errors)
+raw stream            medsec_tm_raw.bin  224068 bytes
+model hash            0xb47ba0907a9d8f4d  (identical for all three streams)
+test samples          256 (stratified over the 5 classes, seed 7, from the 70/15/15 test split)
+reference             class sums of the 4-bit model must be identical, predictions 256/256
+accuracy on samples   90.6250 % (232/256) with 4-bit weights; full weights 90.6250 %
+whole test split      full weights 96.2729 %, 4-bit weights 96.2615 % (change -0.0114 pp),
+                      same prediction for 99.6637 % of the 78801 test flows

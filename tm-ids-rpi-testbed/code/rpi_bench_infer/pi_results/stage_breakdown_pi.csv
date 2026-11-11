@@ -1,0 +1,9 @@
+method,cores,decode_ms,ecc_ms,infer_ms,e2e_ms,ok
+pure Python (big-int),1,898.949,491.240,589.155,1979.344,1
+NumPy (packed uint64),1,14.554,20.891,149.509,184.945,1
+C final NEON,1,2.707,1.337,11.203,15.083,1
+C pipeline swp,1,2.906,1.069,8.388,12.282,1
+C hybrid 2-phase (OpenMP decode+ECC + 1-core infer),4,0.729,0.500,8.527,9.771,1
+C pipeline pipe,3,2.666,1.176,8.401,8.784,1
+C hybrid pipeline (3 decode+ECC workers + 1 infer core),4,2.760,1.070,8.399,8.583,1
+C NEON + OpenMP,4,0.701,0.462,4.200,5.235,1

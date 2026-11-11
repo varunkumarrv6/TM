@@ -1,0 +1,4 @@
+attack,TM2_codewords_corrected,decoded_eq_reference,accuracy_pct,result
+include,8842,50,86.0,PASS
+exclude,1766,50,86.0,PASS
+toggle,10608,50,86.0,PASS

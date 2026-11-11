@@ -1,0 +1,74 @@
+Central RPi 10.42.0.145 output, 2026-10-27 (runs 1-4 incomplete: senders started more than 3 s apart with the
+default --idle-ms 3000; run 5 = clean reference; runs 6-12 = include attack on TM 1 via the laptop, Hamming(7,4)).
+
+rpi5@rpi5:~/rpi3tm_c $ ./receiver
+=== run 1   attack=none K=0 seed=1 literals=   layout hamming   ** INCOMPLETE **
+packets  TM0 0/394  TM1 402/402  TM2 0/402   corrected codewords 0   header errors 0
+=== run 2   attack=none K=0 seed=1 literals=   layout hamming   ** INCOMPLETE **
+packets  TM0 394/394  TM1 0/402  TM2 0/402   corrected codewords 0   header errors 0
+=== run 3   attack=none K=0 seed=1 literals=   layout hamming   ** INCOMPLETE **
+packets  TM0 0/394  TM1 0/402  TM2 402/402   corrected codewords 0   header errors 0
+=== run 4   no label (forwarder not used?)   layout hamming   ** INCOMPLETE **
+packets  TM0 394/394  TM1 0/402  TM2 0/402   corrected codewords 0   header errors 0
+
+rpi5@rpi5:~/rpi3tm_c $ ./receiver --idle-ms 60000
+=== run 5   attack=none K=0 seed=1 literals=   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 0   header errors 0
+                     accuracy      clean    mean true sum      clean   all sums = 0
+TM 0                   82.00%     82.00%            24.06      24.06           0/50
+TM 1 (via laptop)      84.00%     84.00%            25.92      25.92           0/50
+TM 2                   78.00%     78.00%            29.02      29.02           0/50
+fused                  82.00%     82.00%            79.00      79.00           0/50
+fused prediction equal to the clean model for 50/50 flows
+time: decode 11.49 ms, ECC 4.19 ms, inference 6.89 ms (processing 22.57 ms); network first->last packet 9447.5 ms; last packet -> predictions 0.033 ms
+
+=== run 6   attack=include K=4 seed=1 literals=69 80 230 285   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 17274   header errors 0
+TM 0                   82.00%     82.00%            24.06      24.06           0/50
+TM 1 (via laptop)      84.00%     84.00%            25.92      25.92           0/50
+TM 2                   78.00%     78.00%            29.02      29.02           0/50
+fused                  82.00%     82.00%            79.00      79.00           0/50
+fused prediction equal to the clean model for 50/50 flows
+time: decode 15.05 ms, ECC 6.23 ms, inference 8.98 ms (processing 30.26 ms); last packet -> predictions 0.066 ms
+
+=== run 7   attack=include K=8 seed=1 literals=69 80 81 163 230 251 253 285   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 30257   header errors 0
+TM 0                   82.00%     82.00%            24.06      24.06           0/50
+TM 1 (via laptop)      52.00%     84.00%             6.68      25.92           7/50
+TM 2                   78.00%     78.00%            29.02      29.02           0/50
+fused                  82.00%     82.00%            59.76      79.00           0/50
+fused prediction equal to the clean model for 50/50 flows
+  flow  0: [   39  -27  -24  -43  -45 ] [    1   -1   -4   -1    0 ] [   28  -19  -31  -25  -24 ] [   68  -47  -59  -69  -69 ] -> 0, true 0
+  flow  3: [   29  -18  -20   -5  -23 ] [    0    0    0    0    0 ] [   32   -7  -26  -11  -26 ] [   61  -25  -46  -16  -49 ] -> 0, true 0
+time: decode 10.02 ms, ECC 4.73 ms, inference 7.10 ms (processing 21.85 ms); last packet -> predictions 0.048 ms
+
+=== run 8   attack=include K=12 seed=1 literals=1 69 80 81 111 163 230 251 253 285 303 339   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 47359   header errors 0
+TM 1 (via laptop)      52.00%     84.00%             6.68      25.92           7/50
+fused                  82.00%     82.00%            59.76      79.00           0/50   (agree 50/50)
+time: processing 29.70 ms
+
+=== run 9   attack=include K=16 seed=1 literals=1 69 80 81 111 162 163 180 212 230 251 253 285 303 339 340   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 59596   header errors 0
+TM 1 (via laptop)      42.00%     84.00%             3.50      25.92          26/50
+fused                  82.00%     82.00%            56.58      79.00           0/50   (agree 48/50)
+time: processing 26.74 ms
+
+=== run 10   attack=include K=20 seed=1 literals=1 46 47 69 80 81 91 111 114 162 163 180 212 230 251 253 285 303 339 340   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 72537   header errors 0
+TM 1 (via laptop)      42.00%     84.00%             3.50      25.92          26/50
+fused                  82.00%     82.00%            56.58      79.00           0/50   (agree 48/50)
+time: processing 30.20 ms
+
+=== run 11   attack=include K=24 seed=1   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 85080   header errors 0
+TM 1 (via laptop)      42.00%     84.00%             3.50      25.92          29/50
+fused                  82.00%     82.00%            56.58      79.00           0/50   (agree 48/50)
+time: processing 36.71 ms
+
+=== run 12   attack=include K=30 seed=1   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 109780   header errors 0
+TM 1 (via laptop)      42.00%     84.00%             3.50      25.92          29/50
+fused                  82.00%     82.00%            56.58      79.00           0/50   (agree 48/50)
+time: processing 35.90 ms
+(TM 0 = 82.00 % / 24.06 and TM 2 = 78.00 % / 29.02 unchanged in every run)

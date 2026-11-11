@@ -1,0 +1,56 @@
+host: AMD EPYC 9374F 32-Core Processor | x86_64 | 128 cores | governor n/a | Python 3.12.11 | NumPy 2.5.2
+
+method                                     cores  receive ms  infer us/sample  speed-up  check
+Python unpacked                                1     214.578        62261.317      1.0x  OK
+Python packed bytes                            1     214.578        10124.412      6.1x  OK
+Python packed early-exit                       1     214.578         3663.609     17.0x  OK
+Python big-int                                 1     214.578          363.749    171.2x  OK
+NumPy unpacked                                 1       6.084          310.719    200.4x  OK
+NumPy packed uint8                             1       6.084          136.990    454.5x  OK
+NumPy packed uint64                            1       6.084          111.354    559.1x  OK
+NumPy batched uint64                           1       6.084          105.985    587.5x  OK
+C 01 normal (unpacked)                         1       1.098           36.091   1725.1x  OK
+C 02 packed bytes                              1       1.096           25.097   2480.8x  OK
+C 03 packed early-exit                         1       1.098           47.946   1298.6x  OK
+C 04 packed 64-bit                             1       1.099            9.378   6639.1x  OK
+C 05 packed batch (numpy-style)                1       1.133            7.352   8468.6x  OK
+C 06 scalar NEON (intra-clause)                1       1.099           13.950   4463.2x  OK
+C 07 persistent NEON (sample-par)              1       1.082            6.516   9555.1x  OK
+C 08 inter-clause NEON                         1       1.132            4.225  14736.4x  OK
+C 09 inter-clause NEON + OpenMP                4       0.298            5.366  11602.9x  OK
+C 10 final optimised NEON                      1       1.133            3.017  20636.8x  OK
+
+fastest inference: C 10 final optimised NEON (1 core(s)), 3.017 us/sample
+all methods verified: True
+
+pipeline (end-to-end: first packet -> class sums of 256 flows):
+  medsec_tm_hamming.bin        seq     1 core(s)     1.912 ms  (1.00x vs seq)  OK
+  medsec_tm_hamming.bin        stream  1 core(s)     1.900 ms  (1.01x vs seq)  OK
+  medsec_tm_hamming.bin        swp     1 core(s)     1.849 ms  (1.03x vs seq)  OK
+  medsec_tm_hamming.bin        pipe    3 core(s)     1.022 ms  (1.87x vs seq)  OK
+  medsec_tm_hamming.bin        hyb2ph  4 core(s)     1.139 ms  (1.68x vs seq)  OK
+  medsec_tm_hamming.bin        hybpipe 4 core(s)     1.041 ms  (1.84x vs seq)  OK
+  medsec_tm_hamming_err.bin    seq     1 core(s)     1.929 ms  (1.00x vs seq)  OK
+  medsec_tm_hamming_err.bin    stream  1 core(s)     1.923 ms  (1.00x vs seq)  OK
+  medsec_tm_hamming_err.bin    swp     1 core(s)     1.876 ms  (1.03x vs seq)  OK
+  medsec_tm_hamming_err.bin    pipe    3 core(s)     1.023 ms  (1.89x vs seq)  OK
+  medsec_tm_hamming_err.bin    hyb2ph  4 core(s)     1.231 ms  (1.57x vs seq)  OK
+  medsec_tm_hamming_err.bin    hybpipe 4 core(s)     0.952 ms  (2.03x vs seq)  OK
+  medsec_tm_raw.bin            seq     1 core(s)     0.812 ms  (1.00x vs seq)  OK
+  medsec_tm_raw.bin            stream  1 core(s)     0.793 ms  (1.02x vs seq)  OK
+  medsec_tm_raw.bin            swp     1 core(s)     0.793 ms  (1.02x vs seq)  OK
+  medsec_tm_raw.bin            pipe    3 core(s)     0.856 ms  (0.95x vs seq)  OK
+  medsec_tm_raw.bin            hyb2ph  4 core(s)     0.899 ms  (0.90x vs seq)  OK
+  medsec_tm_raw.bin            hybpipe 4 core(s)     0.892 ms  (0.91x vs seq)  OK
+
+end to end (first datagram -> predictions of all 256 flows), stage times in ms:
+  method                                                        decode       ECC     infer  end-to-end
+  pure Python (big-int)                                        143.563    76.978    92.049     312.589  OK
+  NumPy (packed uint64)                                          1.857     2.692    28.512      33.039  OK
+  C final NEON (1 core)                                          0.856     0.277     0.938       1.941  OK
+  C clause-par. NEON + OpenMP (4 cores)                          0.220     0.077     1.507       1.817  OK
+  C pipeline swp (1 core)                                        0.879     0.230     0.794       1.849  OK
+  C pipeline pipe (3 cores)                                      0.894     0.293     0.806       1.022  OK
+  C hybrid: OpenMP decode+ECC, then 1-core infer (4 cores)       0.232     0.056     0.849       1.139  OK
+  C hybrid pipeline: 3 decode+ECC workers + 1 infer core (4 cores)     1.262     0.282     1.014       1.041  OK
+  all end-to-end runs verified: True

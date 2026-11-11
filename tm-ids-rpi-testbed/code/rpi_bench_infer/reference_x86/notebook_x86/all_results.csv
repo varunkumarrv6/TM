@@ -1,0 +1,19 @@
+family,method,cores,receive_ms,infer_us_per_sample,ok
+Python,Python unpacked,1,214.57823598757386,62261.316686999635,1
+Python,Python packed bytes,1,214.57823598757386,10124.41200145986,1
+Python,Python packed early-exit,1,214.57823598757386,3663.608813440078,1
+Python,Python big-int,1,214.57823598757386,363.74856244947296,1
+NumPy,NumPy unpacked,1,6.083629006752744,310.71933210569114,1
+NumPy,NumPy packed uint8,1,6.083629006752744,136.9904374541875,1
+NumPy,NumPy packed uint64,1,6.083629006752744,111.353941406378,1
+NumPy,NumPy batched uint64,1,6.083629006752744,105.98538278827618,1
+C,C 01 normal (unpacked),1,1.098279,36.091,1
+C,C 02 packed bytes,1,1.096478,25.097,1
+C,C 03 packed early-exit,1,1.098099,47.946000000000005,1
+C,C 04 packed 64-bit,1,1.098849,9.377999999999998,1
+C,C 05 packed batch (numpy-style),1,1.132519,7.352,1
+C,C 06 scalar NEON (intra-clause),1,1.099109,13.950000000000001,1
+C,C 07 persistent NEON (sample-par),1,1.081828,6.516,1
+C,C 08 inter-clause NEON,1,1.132479,4.225,1
+C,C 09 inter-clause NEON + OpenMP,4,0.297703,5.3660000000000005,1
+C,C 10 final optimised NEON,1,1.132679,3.0170000000000003,1

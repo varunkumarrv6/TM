@@ -1,0 +1,7 @@
+device,stage,time_ms,note
+central RPi 10.42.0.145,decode,11.49,"Hamming(7,4) codewords + formula syndrome; 1198 packets"
+central RPi 10.42.0.145,ecc,4.19,"bit flip + payload rebuild + header checks"
+central RPi 10.42.0.145,inference,6.89,"per-packet 16-lane NEON scoring of 50 flows"
+central RPi 10.42.0.145,processing_total,22.57,"decode + ECC + inference"
+central RPi 10.42.0.145,network_first_to_last_packet,9447.5,"set by when the 3 senders were started by hand (each sends in ~0.8 s)"
+central RPi 10.42.0.145,last_packet_to_predictions,0.033,"fused prediction ready 33 us after the last packet"

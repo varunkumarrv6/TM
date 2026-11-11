@@ -1,0 +1,20 @@
+rpi5@rpi5:~/rpi3tm_c $ ./receiver --idle-ms 60000
+central RPi 10.42.0.145: listening on UDP 5001; expecting 394 + 402 + 402 datagrams per transmission, 50 test flows
+waiting for the first transmission ... (Ctrl-C to quit)
+
+=== run 5   attack=none K=0 seed=1 literals=   layout hamming
+packets  TM0 394/394  TM1 402/402  TM2 402/402   corrected codewords 0   header errors 0
+                     accuracy      clean    mean true sum      clean   all sums = 0
+TM 0                   82.00%     82.00%            24.06      24.06           0/50
+TM 1 (via laptop)      84.00%     84.00%            25.92      25.92           0/50
+TM 2                   78.00%     78.00%            29.02      29.02           0/50
+fused                  82.00%     82.00%            79.00      79.00           0/50
+fused prediction equal to the clean model for 50/50 flows
+class sums of the first 5 flows (TM0 | TM1 | TM2 | fused -> prediction, true class):
+  flow  0: [   39  -27  -24  -43  -45 ] [   40  -34  -20  -25  -45 ] [   28  -19  -31  -25  -24 ] [  107  -80  -75  -93 -114 ] -> 0, true 0
+  flow  1: [   42  -21  -51  -12  -22 ] [   38  -37  -68   -9  -39 ] [   43  -30  -52  -16  -29 ] [  123  -88 -171  -37  -90 ] -> 0, true 0
+  flow  2: [   42  -21  -51  -12  -22 ] [   38  -37  -68   -9  -39 ] [   43  -30  -52  -16  -29 ] [  123  -88 -171  -37  -90 ] -> 0, true 0
+  flow  3: [   29  -18  -20   -5  -23 ] [   19  -12  -20    2  -29 ] [   32   -7  -26  -11  -26 ] [   80  -37  -66  -14  -78 ] -> 0, true 0
+  flow  4: [   38  -27  -25  -38  -46 ] [   45  -33  -22  -22  -44 ] [   31  -30  -31  -24  -30 ] [  114  -90  -78  -84 -120 ] -> 0, true 0
+time: decode 11.49 ms, ECC 4.19 ms, inference 6.89 ms (processing 22.57 ms); network first->last packet 9447.5 ms; last packet -> predictions 0.033 ms
+saved: results/runs.csv (row 5), results/run_005_class_sums.csv

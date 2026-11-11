@@ -1,0 +1,11 @@
+kernel,threads,stream,layout,receive_ms,corrected,prep_ms,infer_ms_per_sample,batch_ms,reps,hash_ok,scores_ok,tmu_match,accuracy,all_ok
+01 normal (unpacked),1,medsec_tm_hamming.bin,1,1.010947,0,0.000160,0.036085,9.237700,55,1,1,256,0.906250,1
+02 packed bytes,1,medsec_tm_hamming.bin,1,1.024788,0,0.000140,0.025112,6.428649,78,1,1,256,0.906250,1
+03 packed early-exit,1,medsec_tm_hamming.bin,1,1.024298,0,0.000140,0.047322,12.114372,42,1,1,256,0.906250,1
+04 packed 64-bit,1,medsec_tm_hamming.bin,1,1.036788,0,0.126481,0.009329,2.388118,210,1,1,256,0.906250,1
+05 packed batch (numpy-style),1,medsec_tm_hamming.bin,1,1.037037,0,0.145461,0.007808,1.998885,250,1,1,256,0.906250,1
+06 scalar NEON (intra-clause),1,medsec_tm_hamming.bin,1,1.036078,0,0.122161,0.013964,3.574888,140,1,1,256,0.906250,1
+07 persistent NEON (sample-par),1,medsec_tm_hamming.bin,1,1.038499,0,0.025310,0.006514,1.667513,300,1,1,256,0.906250,1
+08 inter-clause NEON,1,medsec_tm_hamming.bin,1,1.014138,0,0.123021,0.004187,1.071848,467,1,1,256,0.906250,1
+09 inter-clause NEON + OpenMP,4,medsec_tm_hamming.bin,1,0.266322,0,0.142542,0.003672,0.940067,532,1,1,256,0.906250,1
+10 final optimised NEON,1,medsec_tm_hamming.bin,1,1.061068,0,0.161191,0.003144,0.804815,621,1,1,256,0.906250,1

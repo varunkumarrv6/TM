@@ -1,0 +1,7 @@
+distributed 3-TM MedSec-25 (70/15/15), 4-bit weights, scale s = 27.429688 (Q8.8 7022)
+packets per TM      [394, 402, 402]  (total 1198), datagram 967 B Hamming / 556 B raw (+2 B round prefix on the wire)
+classes             ['Benign', 'Exfiltration', 'Initial access', 'Lateral movement', 'Reconnaissance']
+50 test flows       10 per class, indices in test_indices.npy
+clean fused 4-bit   50 flows: 82.00 % (41/50)
+whole test split    4-bit fused 96.0280 %, full-weight fused 96.0445 %
+per-node test acc   [95.8046, 96.1041, 96.061] (tmu, full weights)

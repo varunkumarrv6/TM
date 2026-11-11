@@ -1,0 +1,5 @@
+attack none, K = 0, literals [], layout hamming: corrected codewords 0
+  tm0    accuracy  82.00 %   mean true-class sum    24.06
+  tm1    accuracy  84.00 %   mean true-class sum    25.92
+  tm2    accuracy  78.00 %   mean true-class sum    29.02
+  fused  accuracy  82.00 %   mean true-class sum    79.00

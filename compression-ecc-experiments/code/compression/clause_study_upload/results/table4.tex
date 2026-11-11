@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{Bandwidth sensitivity; for each dataset the K with the highest time saving at 1 Mbps.}
+\footnotesize
+\begin{tabular}{llrrrrr}
+\toprule
+Dataset & K & Bandwidth (Mbps) & Best method & Raw upload (ms) & Compressed pipeline (ms) & Time saving (\%) \\
+\midrule
+MNIST (1 bit) & 7 & 1 & Bzip2 & 224000.00 & 18655.11 & 91.67 \\
+ & 7 & 5 & Bzip2 & 44800.00 & 4066.08 & 90.92 \\
+ & 7 & 10 & Bzip2 & 22400.00 & 2242.46 & 89.99 \\
+ & 7 & 50 & Zstandard & 4480.00 & 524.23 & 88.30 \\
+ & 7 & 100 & Zstandard & 2240.00 & 273.50 & 87.79 \\
+Fashion-MNIST (1 bit) & 7 & 1 & Bzip2 & 224000.00 & 16255.68 & 92.74 \\
+ & 7 & 5 & Bzip2 & 44800.00 & 3561.63 & 92.05 \\
+ & 7 & 10 & Bzip2 & 22400.00 & 1974.87 & 91.18 \\
+ & 7 & 50 & Zstandard & 4480.00 & 476.04 & 89.37 \\
+ & 7 & 100 & Zstandard & 2240.00 & 248.94 & 88.89 \\
+AudioMNIST (5 bits) & 7 & 1 & LZMA2 & 35840.00 & 8797.66 & 75.45 \\
+ & 7 & 5 & Bzip2 & 7168.00 & 1940.20 & 72.93 \\
+ & 7 & 10 & Zstandard & 3584.00 & 1051.69 & 70.66 \\
+ & 7 & 50 & Zstandard & 716.80 & 215.38 & 69.95 \\
+ & 7 & 100 & Zstandard & 358.40 & 110.84 & 69.07 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,5 @@
+0 Benign
+1 Exfiltration
+2 Initial access
+3 Lateral movement
+4 Reconnaissance

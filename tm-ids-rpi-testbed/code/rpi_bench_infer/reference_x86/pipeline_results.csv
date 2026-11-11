@@ -1,0 +1,13 @@
+mode,cores,stream,layout,e2e_ms,speedup_vs_seq,reps,corrected,scores_ok,all_ok
+seq,1,medsec_tm_hamming.bin,1,2.011286,1.0000,149,0,1,1
+stream,1,medsec_tm_hamming.bin,1,1.960155,1.0261,153,0,1,1
+swp,1,medsec_tm_hamming.bin,1,1.981876,1.0148,152,0,1,1
+pipe,3,medsec_tm_hamming.bin,1,1.099329,1.8296,272,0,1,1
+seq,1,medsec_tm_hamming_err.bin,1,2.032896,1.0000,148,4459,1,1
+stream,1,medsec_tm_hamming_err.bin,1,1.978785,1.0273,152,4459,1,1
+swp,1,medsec_tm_hamming_err.bin,1,1.999425,1.0167,150,4459,1,1
+pipe,3,medsec_tm_hamming_err.bin,1,1.103219,1.8427,272,4459,1,1
+seq,1,medsec_tm_raw.bin,0,0.866927,1.0000,345,0,1,1
+stream,1,medsec_tm_raw.bin,0,0.865676,1.0014,347,0,1,1
+swp,1,medsec_tm_raw.bin,0,0.867397,0.9995,346,0,1,1
+pipe,3,medsec_tm_raw.bin,0,0.985967,0.8793,306,0,1,1

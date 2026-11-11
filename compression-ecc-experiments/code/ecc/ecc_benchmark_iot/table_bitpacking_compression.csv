@@ -1,0 +1,19 @@
+method,input,size_MB,encode_ms,decode_ms,reduction_vs_raw_%,total_ms
+raw (1 byte / literal),raw,18.9360,0.0000,0.0000,0.0000,0.0000
+bit-packing (np.packbits),raw,2.3760,1.3365,1.0902,87.4525,2.4267
+lz4-0 on raw,raw,5.0241,13.7521,7.5366,73.4682,21.2887
+snappy on raw,raw,4.3389,17.2365,16.1795,77.0863,33.4160
+zstd-1 on raw,raw,1.5813,19.9402,10.5223,91.6492,30.4625
+zstd-3 on raw,raw,1.4757,20.5234,9.5671,92.2068,30.0905
+brotli-1 on raw,raw,2.2279,36.3883,39.0544,88.2344,75.4427
+zlib-6 on raw,raw,1.3635,969.7040,68.7139,92.7996,1038.4180
+bzip2-9 on raw,raw,0.6909,1613.3507,246.0926,96.3513,1859.4433
+lzma-0 on raw,raw,2.0824,786.7657,188.6331,89.0031,975.3988
+lz4-0 on bit-packed,bit-packed,1.0178,4.4481,1.7622,94.6249,6.2102
+snappy on bit-packed,bit-packed,1.0028,4.7802,2.3616,94.7045,7.1418
+zstd-1 on bit-packed,bit-packed,0.7531,5.8564,2.7525,96.0231,8.6089
+zstd-3 on bit-packed,bit-packed,0.7279,8.1188,2.8029,96.1563,10.9217
+brotli-1 on bit-packed,bit-packed,0.7911,8.7169,6.3006,95.8224,15.0175
+zlib-6 on bit-packed,bit-packed,0.6852,131.9979,13.9723,96.3814,145.9702
+bzip2-9 on bit-packed,bit-packed,0.5820,287.1203,68.4899,96.9265,355.6102
+lzma-0 on bit-packed,bit-packed,0.6578,164.2163,43.0014,96.5263,207.2177

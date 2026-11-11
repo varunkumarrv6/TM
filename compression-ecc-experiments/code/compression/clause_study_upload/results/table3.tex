@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering
+\caption{Local-TM model upload compression at 1 Mbps (K local TMs, 2000 clauses each). The compressed pipeline time includes compression, compressed upload and decompression.}
+\footnotesize
+\begin{tabular}{llrrrrrrr}
+\toprule
+Dataset & K & Best method & Raw (MB) & Compressed (MB) & Size saving (\%) & Raw upload (ms) & Compressed pipeline (ms) & Time saving (\%) \\
+\midrule
+MNIST (1 bit) & 2 & Bzip2 & 8.00 & 0.69 & 91.32 & 64000.00 & 5765.70 & 90.99 \\
+ & 3 & Bzip2 & 12.00 & 1.01 & 91.59 & 96000.00 & 8322.45 & 91.33 \\
+ & 4 & Bzip2 & 16.00 & 1.33 & 91.69 & 128000.00 & 10932.11 & 91.46 \\
+ & 5 & Bzip2 & 20.00 & 1.64 & 91.78 & 160000.00 & 13494.07 & 91.57 \\
+ & 6 & Bzip2 & 24.00 & 1.97 & 91.80 & 192000.00 & 16118.83 & 91.60 \\
+ & 7 & Bzip2 & 28.00 & 2.28 & 91.86 & 224000.00 & 18655.11 & 91.67 \\
+Fashion-MNIST (1 bit) & 2 & Bzip2 & 8.00 & 0.68 & 91.45 & 64000.00 & 5682.27 & 91.12 \\
+ & 3 & Bzip2 & 12.00 & 0.95 & 92.06 & 96000.00 & 7866.35 & 91.81 \\
+ & 4 & Bzip2 & 16.00 & 1.22 & 92.38 & 128000.00 & 10035.41 & 92.16 \\
+ & 5 & Bzip2 & 20.00 & 1.47 & 92.64 & 160000.00 & 12093.45 & 92.44 \\
+ & 6 & Bzip2 & 24.00 & 1.73 & 92.80 & 192000.00 & 14164.46 & 92.62 \\
+ & 7 & Bzip2 & 28.00 & 1.98 & 92.92 & 224000.00 & 16255.68 & 92.74 \\
+AudioMNIST (5 bits) & 2 & Bzip2 & 1.28 & 0.34 & 73.11 & 10240.00 & 2836.98 & 72.30 \\
+ & 3 & Bzip2 & 1.92 & 0.50 & 74.00 & 15360.00 & 4093.06 & 73.35 \\
+ & 4 & Bzip2 & 2.56 & 0.65 & 74.51 & 20480.00 & 5336.88 & 73.94 \\
+ & 5 & LZMA2 & 3.20 & 0.75 & 76.46 & 25600.00 & 6551.93 & 74.41 \\
+ & 6 & LZMA2 & 3.84 & 0.90 & 76.64 & 30720.00 & 7712.63 & 74.89 \\
+ & 7 & LZMA2 & 4.48 & 1.03 & 76.99 & 35840.00 & 8797.66 & 75.45 \\
+\bottomrule
+\end{tabular}
+\end{table}
